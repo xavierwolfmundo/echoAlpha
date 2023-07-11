@@ -1,0 +1,23 @@
+/* post.css */
+
+.post {
+    margin-bottom: 20px;
+  }
+  
+  .post-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .post-content {
+    line-height: 1.5;
+  }
+  
+  .post-meta {
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+  /* Add additional CSS rules specific to the post templates */
+  

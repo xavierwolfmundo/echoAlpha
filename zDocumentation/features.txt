@@ -1,0 +1,104 @@
+Features and Specific Requirements
+
+    Events:
+        ^^^Behaviors expextation:
+
+        ^^^Inputs:
+
+        ^^^Outputs
+        -CrossFit boxes and event creators must be able to submit events but they must be sent to an admin for review and verification before being able to be posted. 
+        
+        -CrossFit competitiors must be able to sign up for events in their specific category in the events. 
+        -Spectator must be able to purchace tickets to the event if it is charging spectators, or reserve a spot if it is free to spectate.
+        -Be able to Create events with the following categories: time, descriptionlocation, driving directions, prizes, fees, equiptment requiremnts, minimum movement standards, secured event sponsors or participators, facility amenities, 
+        ///create form with categories for event creators to fill information of
+        -View the up to date count of varified and paid competitiors
+        
+    Blog:
+        ^^^Behaviors expextation:
+
+        ^^^Inputs:
+
+        ^^^Outputs: 
+
+        User Registration and Authentication:
+
+            Allow users to register accounts to engage with the blog (e.g., comment on posts, subscribe to updates).
+            Implement user authentication to ensure secure access to user-specific features.
+
+        User Comments and Discussion:
+
+            Enable users to leave comments on blog posts, fostering engagement and facilitating discussions.
+            Implement moderation features to manage and filter user comments.
+        
+        Social Sharing:
+
+            Integrate social media sharing buttons to allow readers to easily share blog posts on platforms like Facebook, Twitter, or LinkedIn.
+            Improve the reach and visibility of your blog content.
+        
+        Categories and Tags:
+
+            Organize blog posts into categories and assign relevant tags to make it easier for users to browse and find specific content.
+            Implement filtering or search functionality based on categories or tags.
+        
+        Search Functionality:
+
+            Provide a search bar that allows users to search for specific topics, keywords, or phrases within your blog.
+            Implement search algorithms to retrieve relevant posts efficiently.
+        
+        Related Posts:
+
+            Display related or recommended posts at the end of each blog post to encourage further reading and engagement.
+            Use algorithms that analyze content similarity or user browsing patterns to suggest relevant content.
+        
+        Author Profiles and Bios:
+
+            Create author profiles for blog contributors, including biographies, profile pictures, and links to their social media profiles.
+            Highlight author expertise and allow readers to explore more content from specific authors.
+        
+        Subscription and Notifications:
+
+            Allow users to subscribe to the blog via email notifications to receive updates when new blog posts are published.
+            Implement a subscription management system for users to modify their preferences or unsubscribe.
+        
+        SEO Optimization:
+
+            Optimize blog posts for search engine visibility by implementing meta tags, proper heading structure, keyword optimization, and descriptive URLs.
+            Generate sitemaps to help search engines index your blog content effectively.
+        
+        Analytics and Reporting:
+
+            Integrate web analytics tools (e.g., Google Analytics) to track visitor metrics, including page views, visitor demographics, and popular content.
+            Generate reports to gain insights into user behavior and optimize your content strategy.
+        
+        Media Support:
+
+            Allow the embedding of images, videos, or other media types within blog posts.
+            Provide a user-friendly interface for uploading and managing media files.
+        
+        Responsive Design:
+
+            Ensure your blog is mobile-friendly and responsive, adapting to different screen sizes and devices.
+            Optimize the reading experience for users accessing your blog from various devices.
+
+    Sign-ups:
+        ^^^Behaviors expextation:
+
+        ^^^Inputs:
+
+        ^^^Outputs: 
+
+        -Be able to verify and autenthicate a payment has been cleared before providing a ticket and receipt
+        -Allow refunds
+        -Accept coupons
+    
+    Member Portals:
+        ^^^Behaviors expextation:
+
+        ^^^Inputs:
+
+        ^^^Outputs: 
+
+        ~Verify and autenthicate that a Member is who they say they are
+        ~allow member discounts on website store
+        ~Member badges, events participated in, placement, place to show maxes, 

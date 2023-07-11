@@ -1,0 +1,9 @@
+<!-- Customize the template as per your design requirements -->
+{% for event in events %}
+    <div class="event">
+        <h3>{{ event.title }}</h3>
+        <p>{{ event.description }}</p>
+        <!-- Add any additional event information you want to display -->
+        <a href="{% url 'events:event_detail' event.pk %}">View Details</a>
+    </div>
+{% endfor %}

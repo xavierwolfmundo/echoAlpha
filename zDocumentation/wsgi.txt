@@ -1,0 +1,21 @@
+Certainly! The `wsgi.py` file in Django stands for "Web Server Gateway Interface" and is used to deploy the Django project on a WSGI-compliant web server. Let's go through the components and their purposes in the `wsgi.py` program:
+
+1. `import os`:
+   - This line imports the `os` module, which provides a way to interact with the operating system.
+
+2. `from django.core.wsgi import get_wsgi_application`:
+   - This line imports the `get_wsgi_application` function from the `django.core.wsgi` module.
+   - The `get_wsgi_application` function returns the WSGI application object for the Django project.
+
+3. `os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')`:
+   - This line sets the value of the `DJANGO_SETTINGS_MODULE` environment variable.
+   - It specifies the module path (`'project.settings'`) to the project's settings file (`settings.py`).
+   - This line ensures that Django knows which settings module to use for the project.
+
+4. `application = get_wsgi_application()`:
+   - This line calls the `get_wsgi_application` function to retrieve the WSGI application object for the Django project.
+   - The returned `application` object represents the Django application and is responsible for handling HTTP requests and responses.
+
+The `wsgi.py` file acts as an entry point for the web server to communicate with the Django application. When a request is received by the web server, it passes the request to the WSGI application object (`application`) returned by `get_wsgi_application()`. The application object then processes the request and returns an appropriate response.
+
+In summary, the `wsgi.py` file is used for WSGI deployment of the Django project. It sets up the necessary environment and retrieves the WSGI application object, allowing the web server to communicate with the Django application and handle HTTP requests and responses.

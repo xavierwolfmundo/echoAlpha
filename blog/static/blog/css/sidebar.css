@@ -1,0 +1,19 @@
+/* sidebar.css */
+
+.sidebar {
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .sidebar-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-content {
+    line-height: 1.5;
+  }
+  
+  /* Add additional CSS rules specific to the sidebar */
+  
