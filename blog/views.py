@@ -1,26 +1,43 @@
-from django.views.generic import ListView, DetailView
+from django.shortcuts import render
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
 from .models import Post
-from digital_storefront.models import Product
-from django.db.models import Q
 
 class PostListView(ListView):
     model = Post
     template_name = 'blog/post_list.html'
     context_object_name = 'posts'
-    paginate_by = 10  # Set the number of posts per page
+    paginate_by = 10
+
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Post
+    template_name = 'blog/post_form.html'
+    fields = ['title', 'content']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
     context_object_name = 'post'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        
-        # Get related digital products based on post categories and tags
-        related_products = Product.objects.filter(
-            Q(categories__in=self.object.categories.all()) | Q(tags__in=self.object.tags.all())
-        ).exclude(pk=self.object.product.pk)[:5]  # Exclude current post's associated product
-        context['related_products'] = related_products
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Post
+    template_name = 'blog/post_form.html'
+    fields = ['title', 'content']
 
-        return context
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
+
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Post
+    template_name = 'blog/post_confirm_delete.html'
+    success_url = reverse_lazy('blog:post_list')
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
