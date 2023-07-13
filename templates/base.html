@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Your Website Title{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/main.css' %}">
+    {% block extra_styles %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>Your Website</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/digital_storefront/">Digital Storefront</a></li>
+                <li><a href="/events/">Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        &copy; {% now "Y" %} Your Website. All rights reserved.
+    </footer>
+
+    <script src="{% static 'blog/js/main.js' %}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
