@@ -1,0 +1,22 @@
+{% extends 'digital_storefront/base.html' %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <!-- Checkout form for billing and shipping information -->
+        <form method="post" action="{% url 'checkout' %}">
+            <!-- Form fields for billing and shipping information -->
+            ...
+            <input type="submit" value="Place Order" class="btn btn-primary">
+        </form>
+    </div>
+    <div class="col-md-4">
+        <!-- Order summary and payment options -->
+        <p>Total: ${{ order_total }}</p>
+        <!-- Payment options and other details -->
+        ...
+    </div>
+</div>
+{% endblock %}

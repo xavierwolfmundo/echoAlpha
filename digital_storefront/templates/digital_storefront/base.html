@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Digital Storefront{% endblock %}</title>
+    <!-- Include necessary CSS and JS files -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'digital_storefront/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'digital_storefront/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <!-- Include the header content -->
+        {% block header %}
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <!-- Navigation links and other content -->
+            ...
+        </nav>
+        {% endblock %}
+    </header>
+
+    <main role="main" class="container">
+        <!-- Include the main content -->
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Include the footer content -->
+        {% block footer %}
+        <div class="container">
+            <!-- Footer content -->
+            ...
+        </div>
+        {% endblock %}
+    </footer>
+
+    <!-- Include necessary JS files -->
+    <script src="{% static 'digital_storefront/js/jquery.min.js' %}"></script>
+    <script src="{% static 'digital_storefront/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'digital_storefront/js/main.js' %}"></script>
+</body>
+</html>

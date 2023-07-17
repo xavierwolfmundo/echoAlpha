@@ -1,20 +1,18 @@
 from django.contrib import admin
-from .models import Category, Tag, Post
+from .models import Post, Category, Tag
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name']
-
-@admin.register(Tag)
-class TagAdmin(admin.ModelAdmin):
-    list_display = ['name']
-
-@admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'author', 'date_posted']
-    list_filter = ['date_posted', 'author', 'categories', 'tags']
-    search_fields = ['title', 'content']
-    date_hierarchy = 'date_posted'
-    ordering = ['-date_posted']
+    list_display = ('title', 'author', 'published_date')
+    list_filter = ('published_date', 'author')
+    search_fields = ('title', 'content')
+    prepopulated_fields = {'slug': ('title',)}
 
-    filter_horizontal = ['categories', 'tags']
+class CategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+
+class TagAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+
+admin.site.register(Post, PostAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Tag, TagAdmin)

@@ -1,28 +1,16 @@
-<!-- Customize the template as per your design requirements -->
-{% for product in products %}
-    <div class="product">
-        <h3>{{ product.title }}</h3>
-        <p>{{ product.description }}</p>
+{% extends 'digital_storefront/base.html' %}
+
+{% block title %}Product List{% endblock %}
+
+{% block content %}
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4">
+        <!-- Display product details and links to product details page -->
+        <h2>{{ product.title }}</h2>
         <p>Price: ${{ product.price }}</p>
-        <!-- Add any additional product information you want to display -->
-        <a href="{% url 'digital_storefront:product_detail' product.pk %}">View Details</a>
+        <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Details</a>
     </div>
-{% endfor %}
-<!-- Add pagination links if needed -->
-{% if is_paginated %}
-    <div class="pagination">
-        <span class="step-links">
-            {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-            {% endif %}
-
-            <span class="current-page">{{ page_obj.number }}</span>
-
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
-    </div>
-{% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

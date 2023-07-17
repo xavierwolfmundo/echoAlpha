@@ -1,0 +1,23 @@
+{% extends 'digital_storefront/base.html' %}
+
+{% block title %}Shopping Cart{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <!-- Display cart items and their details -->
+        {% for item in cart_items %}
+        <div class="cart-item">
+            <h3>{{ item.product.title }}</h3>
+            <p>Price: ${{ item.product.price }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-md-4">
+        <!-- Display cart summary and checkout options -->
+        <p>Total: ${{ cart_total }}</p>
+        <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+    </div>
+</div>
+{% endblock %}

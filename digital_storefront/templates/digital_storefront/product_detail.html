@@ -1,8 +1,21 @@
-<!-- Customize the template as per your design requirements -->
-<div class="product">
-    <h2>{{ product.title }}</h2>
-    <p>{{ product.description }}</p>
-    <p>Price: ${{ product.price }}</p>
-    <!-- Add any additional product information you want to display -->
-    <a href="{{ product.file.url }}" download>Download</a>
+{% extends 'digital_storefront/base.html' %}
+
+{% block title %}{{ product.title }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <!-- Display product details and description -->
+        <h2>{{ product.title }}</h2>
+        <p>Price: ${{ product.price }}</p>
+        <p>Description: {{ product.description }}</p>
+    </div>
+    <div class="col-md-4">
+        <!-- Include add to cart button and other options -->
+        <form method="post" action="{% url 'add_to_cart' product.id %}">
+            {% csrf_token %}
+            <input type="submit" value="Add to Cart" class="btn btn-primary">
+        </form>
+    </div>
 </div>
+{% endblock %}
