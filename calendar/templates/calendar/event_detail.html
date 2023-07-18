@@ -1,6 +1,12 @@
-<!-- Customize the template as per your design requirements -->
-<div class="event">
-    <h2>{{ event.title }}</h2>
-    <p>{{ event.description }}</p>
-    <!-- Add any additional event information you want to display -->
-</div>
+{% extends 'events/base.html' %}
+
+{% block content %}
+  <h1>{{ event.title }}</h1>
+  <p>Description: {{ event.description }}</p>
+  <p>Start Date: {{ event.start_date }}</p>
+  <p>End Date: {{ event.end_date }}</p>
+  <p>Location: {{ event.location }}</p>
+  <a href="{% url 'events:event_update' event.pk %}">Edit</a>
+  <a href="{% url 'events:event_delete' event.pk %}">Delete</a>
+  <a href="{% url 'events:event_list' %}">Back to Events</a>
+{% endblock %}

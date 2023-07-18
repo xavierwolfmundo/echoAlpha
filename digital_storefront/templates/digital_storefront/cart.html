@@ -3,21 +3,30 @@
 {% block title %}Shopping Cart{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-8">
-        <!-- Display cart items and their details -->
-        {% for item in cart_items %}
-        <div class="cart-item">
-            <h3>{{ item.product.title }}</h3>
-            <p>Price: ${{ item.product.price }}</p>
-            <p>Quantity: {{ item.quantity }}</p>
-        </div>
-        {% endfor %}
-    </div>
-    <div class="col-md-4">
-        <!-- Display cart summary and checkout options -->
-        <p>Total: ${{ cart_total }}</p>
-        <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
-    </div>
-</div>
+  <h1>Your Cart</h1>
+  {% if cart_items %}
+    <ul>
+      {% for item in cart_items %}
+        <li>{{ item.product.name }} - ${{ item.product.price }}</li>
+      {% endfor %}
+    </ul>
+    
+    {% if cart_items.has_other_pages %}
+      <div class="pagination">
+        {% if cart_items.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ cart_items.previous_page_number }}">previous</a>
+        {% endif %}
+        <span class="current-page">{{ cart_items.number }}</span>
+        {% if cart_items.has_next %}
+          <a href="?page={{ cart_items.next_page_number }}">next</a>
+          <a href="?page={{ cart_items.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    <a href="{% url 'digital_storefront:checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+  {% else %}
+    <p>Your cart is empty.</p>
+  {% endif %}
 {% endblock %}

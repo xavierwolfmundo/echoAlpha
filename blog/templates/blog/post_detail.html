@@ -28,6 +28,11 @@
     {% endfor %}
 
     <!-- Add comment form here -->
+    <form method="post" class="comment-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Submit Comment</button>
+    </form>
   </section>
 {% endblock %}
 
