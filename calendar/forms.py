@@ -1,5 +1,7 @@
+# project/events/forms.py
+
 from django import forms
-from .models import Event
+from .models import Event, Comment
 
 class EventForm(forms.ModelForm):
     class Meta:
@@ -25,3 +27,12 @@ class EventForm(forms.ModelForm):
         self.fields['end_date'].label = "End Date"
         self.fields['start_date'].help_text = "Please select the start date of the event."
         self.fields['end_date'].help_text = "Please select the end date of the event."
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['author', 'content']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Add any specific initialization or customization for CommentForm here, if needed

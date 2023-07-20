@@ -1,37 +1,69 @@
+# project/tests/test_forms.py
+
+import pytest
 from django.test import TestCase
-from blog.forms import PostForm
-from calendar.forms import EventForm
-from digital_storefront.forms import ProductForm
+from project.blog.forms import PostForm
+from project.calendar.forms import EventForm
+from project.digital_storefront.forms import ProductForm
 
-class PostFormTest(TestCase):
-    def test_valid_post_form(self):
-        data = {'title': 'Test Post', 'content': 'This is a test post.'}
-        form = PostForm(data=data)
+@pytest.mark.django_db
+class TestForms(TestCase):
+    def test_post_form_valid_data(self):
+        form_data = {
+            'title': 'Test Post',
+            'content': 'This is a test post content.',
+        }
+        form = PostForm(data=form_data)
         self.assertTrue(form.is_valid())
 
-    def test_invalid_post_form(self):
-        data = {'title': '', 'content': ''}
-        form = PostForm(data=data)
+    def test_post_form_invalid_data(self):
+        form_data = {
+            'title': '',  # Title is required
+            'content': 'This is a test post content.',
+        }
+        form = PostForm(data=form_data)
         self.assertFalse(form.is_valid())
 
-class EventFormTest(TestCase):
-    def test_valid_event_form(self):
-        data = {'title': 'Test Event', 'description': 'This is a test event.'}
-        form = EventForm(data=data)
+    def test_event_form_valid_data(self):
+        form_data = {
+            'title': 'Test Event',
+            'description': 'This is a test event description.',
+            'start_date': '2023-07-30',
+            'end_date': '2023-08-01',
+            'location': 'Test Location',
+        }
+        form = EventForm(data=form_data)
         self.assertTrue(form.is_valid())
 
-    def test_invalid_event_form(self):
-        data = {'title': '', 'description': ''}
-        form = EventForm(data=data)
+    def test_event_form_invalid_data(self):
+        form_data = {
+            'title': 'Test Event',
+            'description': 'This is a test event description.',
+            'start_date': '',  # Start date is required
+            'end_date': '2023-08-01',
+            'location': 'Test Location',
+        }
+        form = EventForm(data=form_data)
         self.assertFalse(form.is_valid())
 
-class ProductFormTest(TestCase):
-    def test_valid_product_form(self):
-        data = {'name': 'Test Product', 'price': 9.99}
-        form = ProductForm(data=data)
+    def test_product_form_valid_data(self):
+        form_data = {
+            'name': 'Test Product',
+            'price': 99.99,
+            'description': 'This is a test product description.',
+            'category': 'Test Category',
+            'tags': 'test, product',
+        }
+        form = ProductForm(data=form_data)
         self.assertTrue(form.is_valid())
 
-    def test_invalid_product_form(self):
-        data = {'name': '', 'price': -1}
-        form = ProductForm(data=data)
+    def test_product_form_invalid_data(self):
+        form_data = {
+            'name': '',  # Name is required
+            'price': 99.99,
+            'description': 'This is a test product description.',
+            'category': 'Test Category',
+            'tags': 'test, product',
+        }
+        form = ProductForm(data=form_data)
         self.assertFalse(form.is_valid())
