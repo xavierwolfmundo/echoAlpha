@@ -1,5 +1,3 @@
-# project/blog/forms.py
-
 from django import forms
 from .models import Post, Comment
 
@@ -11,4 +9,8 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['author', 'content', 'post']  # Include 'post' field for associating the comment with a post
+        fields = ['author', 'content', 'post']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['post'].widget = forms.HiddenInput()

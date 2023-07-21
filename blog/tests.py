@@ -35,5 +35,3 @@ class BlogTests(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog/post_create.html')
-
-    # Add more tests as needed

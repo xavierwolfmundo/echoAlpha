@@ -1,0 +1,14 @@
+[MASTER]
+
+# Specify the Django settings module for Pylint to use
+init-hook='import os; os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")'
+
+[MESSAGES CONTROL]
+
+# Disable some specific warnings if needed
+disable = C0114, C0115, C0116
+
+[BASIC]
+
+# Set the minimum required score for a module (you can adjust this as needed)
+min-similarity-lines=5

@@ -1,0 +1,41 @@
+
+```python
+from django import forms
+from .models import Post, Comment
+```
+
+1. This code imports necessary modules and models for creating forms in Django.
+2. `from django import forms`: This imports the `forms` module from Django, which contains classes and functions for creating forms.
+3. `from .models import Post, Comment`: This imports the `Post` and `Comment` models from the current application (`blog`) to be used in the form.
+
+```python
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'categories', 'tags']
+```
+
+1. This code defines a form called `PostForm` based on the `ModelForm` class provided by Django.
+2. `class PostForm(forms.ModelForm)`: This defines a new form class `PostForm` that inherits from `forms.ModelForm`.
+3. `class Meta:`: This is an inner class that provides additional information about the form.
+4. `model = Post`: This specifies that the form is based on the `Post` model.
+5. `fields = ['title', 'content', 'categories', 'tags']`: This lists the fields from the `Post` model that should be included in the form. In this case, the form will have fields for 'title', 'content', 'categories', and 'tags'.
+
+The `PostForm` form is essentially a representation of the `Post` model, allowing users to create and edit posts using a user-friendly form in the frontend.
+
+```python
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['author', 'content', 'post']
+```
+
+1. This code defines another form called `CommentForm` based on the `ModelForm` class provided by Django.
+2. `class CommentForm(forms.ModelForm)`: This defines a new form class `CommentForm` that inherits from `forms.ModelForm`.
+3. `class Meta:`: This is an inner class that provides additional information about the form.
+4. `model = Comment`: This specifies that the form is based on the `Comment` model.
+5. `fields = ['author', 'content', 'post']`: This lists the fields from the `Comment` model that should be included in the form. In this case, the form will have fields for 'author', 'content', and 'post'.
+
+The `CommentForm` form is a representation of the `Comment` model, allowing users to add comments to posts using a form.
+
+These forms are essential for interacting with the application's data in a user-friendly manner. By using `ModelForm`, you can easily create forms that are automatically mapped to the underlying models and perform validation and saving of data seamlessly. The form fields are defined based on the model fields, and Django handles the form validation and data saving for you, making it easier and more efficient to work with user input in the application.
