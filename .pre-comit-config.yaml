@@ -1,0 +1,47 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: check-json
+    -   id: debug-statements
+    -   id: check-case-conflict
+    -   id: check-docstring-first
+    -   id: mixed-line-ending
+    -   id: requirements-txt-fixer
+    -   id: fix-encoding-pragma
+    -   id: sort-simple-yaml
+    -   id: check-merge-conflict
+    -   id: check-xml
+    -   id: check-vcs-permalinks
+    -   id: end-of-file-fixer
+    -   id: name-tests-test
+    -   id: no-commit-to-branch
+    -   id: trailing-whitespace
+    -   id: debug-statements
+    -   id: check-executables-have-shebangs
+    -   id: pretty-format-json
+    -   id: pretty-format-shell
+    -   id: pretty-format-xml
+    -   id: pretty-format-yaml
+
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.910
+    hooks:
+    -   id: mypy
+        additional_dependencies: [mypy==0.910]
+
+-   repo: local
+    hooks:
+    -   id: pylint
+        name: pylint
+        language: system
+        entry: pylint
+        types: [python]
+        args: [
+            "--rcfile=.pylintrc",
+            "project",
+        ]

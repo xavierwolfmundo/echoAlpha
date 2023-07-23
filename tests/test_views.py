@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from blog.models import Post
-from events.models import Event
+from calendar.models import Event
 from digital_storefront.models import Product
 
 class PostListViewTest(TestCase):
