@@ -1,0 +1,49 @@
+/* CSS for cart.html template */
+
+/* Add any custom styles for the cart page */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  header a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    margin-top: 2rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  li {
+    margin-bottom: 1rem;
+  }
+  
+  .pagination {
+    margin-top: 1rem;
+  }
+  
+  footer {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    background-color: #f4f4f4;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  /* Add any additional styles specific to the cart page */
+  

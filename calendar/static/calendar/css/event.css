@@ -1,0 +1,14 @@
+/* Add CSS styles for the event view */
+/* Example styles: */
+.event {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .event h2 {
+    color: #007bff;
+  }
+  
+  /* Add any other styles for the event view */
+  

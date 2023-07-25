@@ -1,0 +1,21 @@
+# Django development requirements
+Django>=3.2,<4.0
+
+# Database
+psycopg2-binary>=2.9,<3.0
+
+# Static code analysis and linting
+flake8>=4.0,<5.0
+mypy>=0.910,<1.0
+
+# Testing
+coverage>=6.3,<7.0
+pytest>=7.0,<8.0
+pytest-django>=4.0,<5.0
+factory-boy>=3.2,<4.0
+django-test-migrations>=0.2,<0.3
+
+# Development server
+gunicorn>=20.1,<21.0
+
+# Other development tools or dependencies may be added as needed

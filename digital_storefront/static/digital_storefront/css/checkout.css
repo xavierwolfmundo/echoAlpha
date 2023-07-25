@@ -1,0 +1,62 @@
+/* CSS for checkout.html template */
+
+/* Add any custom styles for the checkout page */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  header a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    margin-top: 2rem;
+  }
+  
+  form {
+    margin-bottom: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #555;
+  }
+  
+  footer {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    background-color: #f4f4f4;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  /* Add any additional styles specific to the checkout page */
+  
